@@ -7,3 +7,8 @@ Feature: Event Information
   Background:
     Given an organization has been created
       And I am logged in as an event organizer
+
+  Scenario: Create Event
+    Given I am on the event creation page
+    When I submit some information about my event
+    Then an event should be created
