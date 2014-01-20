@@ -51,7 +51,7 @@ Feature: Attendee Check-in
     When I check in the attendee
     Then the attendee should be added to the waitlist
 
-  Scenario: Prevent new check-ins when event attendance is at capacity (waitlist not enabled)
+  Scenario: Prevent new check-ins when event attendance is at capacity (if waitlist not enabled)
     Given the event attendance is equal to the event capacity
       And the waitlist has not been enabled for the event
     When I need to check in an attendee
