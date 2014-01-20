@@ -42,7 +42,7 @@ Feature: Attendee Check-in
     Then I should not be able to fill in any information
 
   Scenario: Warn volunteers when event attendance is nearing capacity
-    Given the event attendance is 5 attendees less than the maximum capacity
+    Given the event attendance is 5 less than the maximum capacity
     When I need to check in an attendee
     Then I should be warned how much space is left
 
