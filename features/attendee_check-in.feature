@@ -6,18 +6,22 @@ Feature: Attendee Check-in
 
   Background:
     Given an event has been created
-      And that I am logged in as a volunteer
+      And I am logged in as a volunteer
 
   Scenario: Check in an attendee who has pre-registered
     Given I need to check in an attendee
-    When I see that the attendee has pre-registered
-    Then I should be able to check them in
+      And the attendee has pre-registered
+    When I check in the attendee
+    Then the attendee should be marked as checked in for the event
+      And the event attendance should increase by 1
 
   Scenario: Check in an attendee who has not pre-registered
     Given I need to check in an attendee
-    When I see that the attendee has not pre-registered
+      And the attendee has not pre-registered
+    When I check in the attendee
     Then I should be able to enter their information
-    Then I should be able to check them in
+    Then the attendee should be marked as checked in for the event
+      And the event attendance should increase by 1
 
   Scenario: View registered attendees not yet checked in
     Given I am on the event information page
@@ -36,13 +40,25 @@ Feature: Attendee Check-in
     When I view the list of checked-in attendees
     Then I should be able to start checking in attendees
 
-  Scenario: Warn volunteers when event attendance is at capacity
-    Given the event attendance is equal to the event capacity
-    When I need to check in an attendee
-    Then I should not be able to fill in any information
-
   Scenario: Warn volunteers when event attendance is nearing capacity
     Given the event attendance is 5 less than the maximum capacity
     When I need to check in an attendee
     Then I should be warned how much space is left
 
+  Scenario: Add attendee to waitlist when event is at capacity
+    Given I need to check in an attendee
+      And the event attendance is equal to the event capacity
+    When I check in the attendee
+    Then the attendee should be added to the waitlist
+
+  Scenario: Prevent new check-ins when event attendance is at capacity (waitlist not enabled)
+    Given the event attendance is equal to the event capacity
+      And the waitlist has not been enabled for the event
+    When I need to check in an attendee
+    Then I should not be able to fill in any information
+
+  Scenario: Check out attendee
+    Given an attendee has been checked in
+    When I check out an attendee
+    Then the attendee should be marked as checked out for the event
+      And the event attendance should decrease by 1
