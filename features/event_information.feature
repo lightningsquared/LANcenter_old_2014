@@ -1,0 +1,5 @@
+Feature: Event Information
+
+  In order to allow LANcenter to understand my event better
+  As an event organizer
+  I want to enter provide some basic detail about my event to the system
