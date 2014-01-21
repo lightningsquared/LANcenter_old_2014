@@ -12,7 +12,17 @@ Feature: Organization
     When I submit some information about my organization
     Then an organization should be created
 
-  Scenario: Edit Organization Details
+  Scenario: Disallow access to organization creation page if organization exists
+    Given an organization has been created
+    When I view the organizations page
+    Then I should not be able to create a new organization
+
+  Scenario: Prevent more than one organization from being created
+    Given an organization has been created
+    When I submit some information about my organization
+    Then I should be told that an organization already exists
+
+  Scenario: Edit Organization Information
     Given an organization has been created
     When I edit some information about my organization
     Then I should see my changes on the organization page
