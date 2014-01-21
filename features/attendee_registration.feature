@@ -6,21 +6,23 @@ Feature: Attendee Registration
 
   Background:
     Given an event exists
-      And I am logged in as an event organizer
 
   Scenario: Open Pre-Registration manually
     Given the event has not started yet
+      And I am logged in as an event organizer
     When I open pre-registration
     Then the event pre-registration page should be open to new attendees
 
   Scenario: Close Pre-Registration manually
     Given the event has not started yet
+      And I am logged in as an event organizer
       And pre-registration is open
     When I close pre-registration
     Then the event pre-registration page should be closed to new attendees
 
   Scenario: Schedule Pre-Registration
     Given the event has not started yet
+      And I am logged in as an event organizer
     When I schedule times for pre-registration
     Then the pre-registration open time should not be on or after the event start time
       And the pre-registration close time should not be after the event start time
@@ -32,6 +34,7 @@ Feature: Attendee Registration
   Scenario: Automatically close Pre-Registration at the start of an event
     Given event pre-registration is open
     When the event starts
-      And event pre-registration is open
     Then pre-registration should be closed
       And the event pre-registration page should be closed to new attendees
+
+
