@@ -1,8 +1,8 @@
-Feature: Event Information
+Feature: Events
 
   In order to allow LANcenter to understand my event better
   As an event organizer
-  I want to enter provide some basic detail about my event to the system
+  I want to enter some information about my event to LANcenter
 
   Background:
     Given an organization has been created
@@ -13,7 +13,7 @@ Feature: Event Information
     When I submit some information about my event
     Then an event should be created
 
-  Scenario: Edit Event Details
+  Scenario: Edit Event Information
     Given an event has been created
     When I edit some information about my event
     Then I should see my changes on the event page
