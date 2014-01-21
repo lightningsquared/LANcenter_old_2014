@@ -4,7 +4,7 @@ Feature: User Accounts
   As an event organizer
   I would like to provide user accounts to control permissions for people at the event
 
-  Scenario: Create First User Account
+  Scenario: Create first User Account
     Given no user accounts exist
     When I submit a new user account request
     Then a new user account should be created
