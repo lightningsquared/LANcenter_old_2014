@@ -68,7 +68,6 @@ Feature: Attendee Check-in
       And the event attendance is equal to the event capacity
       And another attendee has been added to the waitlist
     When I check out the attendee
-      And I need to check in a new attendee
     Then I should see the next attendee to be checked in from the waitlist
 
   Scenario: Check in attendee from the waitlist
