@@ -10,7 +10,7 @@ Feature: Events
 
   Scenario: Create Event
     Given I am on the event creation page
-    When I submit some information about my event
+    When I submit a new event request
     Then an event should be created
 
   Scenario: Edit Event Information
@@ -19,6 +19,6 @@ Feature: Events
     Then I should see my changes on the event page
 
   Scenario: Archive Event
-    When I archive the event
+    Given an event has been created
+    When I submit an archive event request
     Then the event should be archived
-      And the event page should show that the event has been archived
