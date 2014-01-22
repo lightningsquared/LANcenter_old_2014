@@ -78,3 +78,9 @@ Feature: Attendee Check-in
       And the attendee should be checked in for the event
       And the event attendance should increase by 1
 
+  Scenario: Notify waitlisted attendee via email when they can be checked in
+    Given an attendee has been checked in
+      And the event attendance is equal to the event capacity
+      And another attendee has been added to the waitlist
+    When I check out the attendee
+    Then the first attendee on the waitlist should receive an email informing them they can be checked in
