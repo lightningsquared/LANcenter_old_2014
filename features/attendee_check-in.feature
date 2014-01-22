@@ -24,9 +24,9 @@ Feature: Attendee Check-in
       And the event attendance should increase by 1
 
   Scenario: View registered attendees not yet checked in
-    Given I am on the event information page
-    When I view the list of attendees
+    Given I am viewing the event information
       And no attendees have been checked in
+    When I view the list of attendees
     Then I should see no attendees
       And I should be able to start checking in attendees
 
