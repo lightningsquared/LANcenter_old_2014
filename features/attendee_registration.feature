@@ -41,10 +41,34 @@ Feature: Attendee Registration
     Given the event pre-registration page is open to new attendees
     When a visitor submits an attendee registration request for the event
     Then the system should save a new attendee for the event
-      And the visitor should receive an email confirming they have been registered as an attendee
+      And the new attendee should be sent an email confirming they have been registered as an attendee
 
-  Scenario: Volunteer submits attendee registration at any time
+  Scenario: Volunteer submits registration on attendee's behalf at any time
     Given I am logged in as a volunteer
     When I submit an attendee registration request for the event
     Then the system should save a new attendee for the event
-      And the visitor should receive an email confirming they have been registered as an attendee
+      And the new attendee should be sent an email confirming they have been registered as an attendee
+
+  Scenario: Auto-fill attendee registration information when registering for another event
+    Given a previous event exists
+      And I am logged in as an attendee
+    When I visit the registration page for an event with open registration
+    Then I should see that I have attended a previous event
+      And my information should be auto-filled in the registration form
+
+  Scenario: Attendee submits registration with existing attendee information from previous event
+    Given a previous event exists
+      And I am logged in as an attendee
+    When I submit an attendee registration request for the event
+      And the submitted information matches the attendee's information from a previous event
+    Then the system should add the existing attendee to the event
+      And I should be sent an email confirming they have been registered as an attendee
+
+  Scenario: Attendee submits registration with updated attendee information from previous event
+    Given a previous event exists
+      And I am logged in as an attendee
+    When I submit an attendee registration request for the event
+      And the submitted information does not match the attendee's information from a previous event
+    Then the system should add the existing attendee to the event
+      And the attendee should have their user account updated with the new information
+      And the attendee should be sent an email confirming they have been registered as an attendee
