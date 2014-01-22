@@ -23,7 +23,7 @@ Feature: Attendee Registration
   Scenario: Schedule Pre-Registration
     Given the event has not started yet
       And I am logged in as an event organizer
-    When I schedule times for pre-registration
+    When I schedule start and end times for pre-registration
     Then the pre-registration open time should not be on or after the event start time
       And the pre-registration close time should not be after the event start time
     Then pre-registration should be open at the pre-registration open time
