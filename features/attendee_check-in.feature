@@ -6,7 +6,7 @@ Feature: Attendee Check-in
 
   Background:
     Given an event has been created
-      And I am logged in as a volunteer
+      And I am logged in as a volunteer or event organizer
 
   Scenario: Check in an attendee who has pre-registered
     Given I need to check in a new attendee
