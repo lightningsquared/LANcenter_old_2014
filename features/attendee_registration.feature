@@ -37,4 +37,14 @@ Feature: Attendee Registration
     Then pre-registration should be closed
       And the event pre-registration page should be closed to new attendees
 
+  Scenario: Visitor submits attendee registration during pre-registration
+    Given the event pre-registration page is open to new attendees
+    When a visitor submits an attendee registration request for the event
+    Then the system should save a new attendee for the event
+      And the visitor should receive an email confirming they have been registered as an attendee
 
+  Scenario: Volunteer submits attendee registration at any time
+    Given I am logged in as a volunteer
+    When I submit an attendee registration request for the event
+    Then the system should save a new attendee for the event
+      And the visitor should receive an email confirming they have been registered as an attendee
