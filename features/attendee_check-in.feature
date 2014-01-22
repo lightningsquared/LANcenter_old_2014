@@ -35,7 +35,7 @@ Feature: Attendee Check-in
     When I view the list of checked-in attendees
     Then I should see all checked-in attendees
 
-  Scenario: List checked-in attendees when none have been checked in
+  Scenario: Suggest to begin checking in attendees when none have been checked in
     Given no attendees have been checked in
     When I view the list of checked-in attendees
     Then I should be able to start checking in attendees
