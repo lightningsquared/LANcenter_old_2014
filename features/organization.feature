@@ -14,7 +14,7 @@ Feature: Organization
 
   Scenario: Disallow access to new organization page if organization exists
     Given an organization has been created
-    When I view the organizations page
+    When I view the organization page
     Then I should not be able to create a new organization
 
   Scenario: Prevent more than one organization from being created
