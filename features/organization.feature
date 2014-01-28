@@ -9,7 +9,7 @@ Feature: Organization
 
   Scenario: Create Organization
     Given an organization does not exist
-    When I submit some information about my organization
+    When I submit an organization creation request
     Then an organization should be created
 
   Scenario: Disallow access to new organization page if organization exists
