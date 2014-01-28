@@ -12,8 +12,7 @@ Feature: User Accounts
       And the user account should be of type "Event Organizer"
 
   Scenario: Create User Account
-    Given I am logged in as an event organizer
-      And one or more user accounts exist of type "Event Organizer"
+    Given one or more user accounts exist of type "Event Organizer"
     When I submit a new user account request
       And I confirm my email address
     Then a new user account should be created
