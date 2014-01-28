@@ -14,8 +14,9 @@ Feature: Organization
 
   Scenario: Disallow access to new organization page if organization exists
     Given an organization has been created
-    When I view the organization page
-    Then I should not be able to create a new organization
+    When I view the new organization page
+    Then I should be redirected to the organization detail page
+      And I should be notified that an organization already exists
 
   Scenario: Prevent more than one organization from being created
     Given an organization has been created
