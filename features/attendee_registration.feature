@@ -16,7 +16,7 @@ Feature: Attendee Registration
   Scenario: Close Pre-Registration manually
     Given the event has not started yet
       And I am logged in as an event organizer
-      And pre-registration is open
+      And event pre-registration is open
     When I close pre-registration
     Then the event pre-registration page should be closed to new attendees
 
