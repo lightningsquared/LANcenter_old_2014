@@ -19,7 +19,7 @@ Feature: User Accounts
 
   Scenario: Prevent access to other parts of LANcenter until at least one event organizer account has been created
     Given no user accounts exist
-    When I access any location within LANcenter
+    When I access any location within LANcenter that is not the new user account page
     Then I should be redirected to the user account creation page
       And I should be notified that an event organizer user account must first be created
 
