@@ -60,15 +60,15 @@ Feature: Attendee Registration
     Given a previous event exists
       And I am logged in
     When I submit an attendee registration request for the event
-      And the submitted information matches the attendee's information from a previous event
-    Then the system should add the existing attendee to the event
-      And I should be sent an email confirming they have been registered as an attendee
+      And the submitted information matches my information from a previous event
+    Then the system should add me as an attendee to the event
+      And I should be sent an email confirming I have been registered as an attendee
 
   Scenario: Attendee submits registration with updated attendee information from previous event
     Given a previous event exists
       And I am logged in
     When I submit an attendee registration request for the event
-      And the submitted information does not match the attendee's information from a previous event
-    Then the system should add the existing attendee to the event
-      And the attendee should have their user account updated with the new information
-      And the attendee should be sent an email confirming they have been registered as an attendee
+      And the submitted information does not match my information from a previous event
+    Then the system should add me as an attendee to the event
+      And I should have my user account updated with the new information
+      And I should be sent an email confirming I have been registered as an attendee
