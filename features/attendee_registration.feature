@@ -52,7 +52,7 @@ Feature: Attendee Registration
   Scenario: Auto-fill attendee registration information when registering for another event
     Given a previous event exists
       And I am logged in
-    When I visit the registration page for an event with open registration
+    When I visit the registration page for an event during its pre-registration period
     Then I should see that I have attended a previous event
       And my information should be auto-filled in the registration form
 
