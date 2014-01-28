@@ -1,8 +1,8 @@
 Feature: User Accounts
 
-  In order to identify the people from my organization interacting with LANcenter when necessary
-  As an event organizer
-  I would like to provide user accounts to control permissions for people at the event
+  In order be able to identify myself to LANcenter
+  As an attendee, volunteer, or event organizer
+  I would like to have a user account within the system
 
   Scenario: Create first User Account
     Given no user accounts exist
