@@ -18,6 +18,13 @@ Feature: Organization
     Then I should be redirected to the organization detail page
       And I should be notified that an organization already exists
 
+  Scenario: Reject new organization requests if organization exists
+    Given an organization has been created
+    When I submit a new organization request
+    Then the request should be rejected
+      And I should be redirected to the organization detail page
+      And I should be notified that an organization already exists
+
   Scenario: Prevent more than one organization from being created
     Given an organization has been created
     When I submit some information about my organization
