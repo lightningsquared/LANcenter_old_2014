@@ -70,5 +70,5 @@ Feature: Attendee Registration
     When I submit an attendee registration request for the event
       And the submitted information does not match my information from a previous event
     Then the system should add me as an attendee to the event
-      And I should have my user account updated with the updated information
+      And I should have my user account updated with the new information
       And I should be sent an email confirming I have been registered as an attendee
