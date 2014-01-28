@@ -33,7 +33,7 @@ Feature: User Accounts
     Given an event exists
       And an attendee has registered for an event
     When the attendee submits a new user account request
-      And the attendee's email address matches the email address in the new user account request
+      And the email address in the new user account request matches an email address in the list of attendees from any event
       And the attendee confirms their email address
     Then a new user account should be created
-      And the attendee's information should be added to the attendee's user account
+      And the attendee's information should be connected to the attendee's user account
