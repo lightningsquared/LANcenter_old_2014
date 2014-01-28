@@ -18,7 +18,8 @@ Feature: Attendee Check-in
   Scenario: Check in an attendee who has not pre-registered
     Given I need to check in a new attendee
       And the attendee has not pre-registered
-    When I check in the attendee
+    When I submit an attendee registration request for the event
+      And I check in the attendee
     Then I should be able to enter their information
     Then the attendee should be checked in for the event
       And the event attendance should increase by 1
