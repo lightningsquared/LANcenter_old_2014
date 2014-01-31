@@ -3,7 +3,11 @@ Given(/^no user accounts exist$/) do
 end
 
 When(/^I submit a new user account request$/) do
-  pending # express the regexp above with the code you wish you had
+  visit(new_user_path)
+  fill_in('user_email_address', :with => "kenneth.szovati@gmail.com")
+  fill_in('user_password', :with => "kens_sUpEr_sEcReT_pAsSwOrD")
+  fill_in('user_password_confirmation', :with => "kens_sUpEr_sEcReT_pAsSwOrD")
+  click_button('Create User')
 end
 
 Then(/^a new user account should be created$/) do
