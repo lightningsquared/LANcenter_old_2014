@@ -10,12 +10,12 @@ Then(/^a new user account should be created$/) do
   pending # express the regexp above with the code you wish you had
 end
 
-Given(/^one user account exists of type "(.*?)"$/) do |type|
-  pending # express the regexp above with the code you wish you had
+Given(/^an Event Organizer user account exists$/) do
+  FactoryGirl.create(:user_event_organizer)
 end
 
-Given(/^one or more user accounts exist of type "(.*?)"$/) do |type|
-  pending # express the regexp above with the code you wish you had
+Given(/^one or more user accounts exist of type (.*?)$/) do |type|
+  pending
 end
 
 Then(/^the user account should be of type "(.*?)"$/) do |type|
