@@ -14,7 +14,7 @@ Feature: User Accounts
 
   @wip
   Scenario: Create User Account
-    Given one or more user accounts exist of type "Event Organizer"
+    Given an Event Organizer user account exists
     When I submit a new user account request
       And I confirm my email address
     Then a new user account should be created
@@ -26,7 +26,7 @@ Feature: User Accounts
       And I should be notified that an event organizer user account must first be created
 
   Scenario: Prevent deletion of all Event Organizer accounts
-    Given one user account exists of type "Event Organizer"
+    Given an Event Organizer user account exists
     When I try to delete the user account
     Then the user account should not be deleted
       And I should be notified that at least one event organizer user account must exist
