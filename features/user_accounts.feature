@@ -10,7 +10,7 @@ Feature: User Accounts
     When I submit a new user account request
       And I confirm my email address
     Then a new user account should be created
-      And the user account should be of type "Event Organizer"
+      And the user account should have Event Organizer privileges
 
   @wip
   Scenario: Create User Account

@@ -11,16 +11,12 @@ Then(/^a new user account should be created$/) do
 end
 
 Given(/^an Event Organizer user account exists$/) do
-  FactoryGirl.create(:user)
+  @user = FactoryGirl.create(:user)
   User.count.should == 1
 end
 
-Given(/^one or more user accounts exist of type (.*?)$/) do |type|
-  pending
-end
-
-Then(/^the user account should be of type "(.*?)"$/) do |type|
-  pending # express the regexp above with the code you wish you had
+Then(/^the user account should have Event Organizer privileges$/) do
+  @user.privilege_level.should == "event_organizer"
 end
 
 When(/^I access any location within LANcenter that is not the new user account page$/) do
