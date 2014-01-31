@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-  attr_accessible :email_address, :password_digest, :privilege_level
+  attr_accessible :email_address, :password, :password_confirmation
+  has_secure_password
 end
