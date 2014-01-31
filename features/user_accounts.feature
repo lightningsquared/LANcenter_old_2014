@@ -4,6 +4,7 @@ Feature: User Accounts
   As an attendee, volunteer, or event organizer
   I would like to have a user account within the system
 
+  @wip
   Scenario: Create first User Account
     Given no user accounts exist
     When I submit a new user account request
@@ -11,6 +12,7 @@ Feature: User Accounts
     Then a new user account should be created
       And the user account should be of type "Event Organizer"
 
+  @wip
   Scenario: Create User Account
     Given one or more user accounts exist of type "Event Organizer"
     When I submit a new user account request
