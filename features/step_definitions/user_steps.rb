@@ -1,5 +1,5 @@
 Given(/^no user accounts exist$/) do
-  pending # express the regexp above with the code you wish you had
+  User.count.should == 0
 end
 
 When(/^I submit a new user account request$/) do
@@ -43,14 +43,6 @@ Then(/^the user account should not be deleted$/) do
 end
 
 Then(/^I should be notified that at least one event organizer user account must exist$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Given(/^an event exists$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Given(/^an attendee has registered for an event$/) do
   pending # express the regexp above with the code you wish you had
 end
 
