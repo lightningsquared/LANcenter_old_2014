@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(:version => 20140131054701) do
 
   create_table "users", :force => true do |t|
-    t.string   "email_address",   :limit => 254, :null => false
-    t.string   "password_digest", :limit => 60,  :null => false
-    t.string   "privilege_level",                :null => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.string   "email_address",   :limit => 254,                         :null => false
+    t.string   "password_digest", :limit => 60,                          :null => false
+    t.string   "privilege_level",                :default => "attendee", :null => false
+    t.datetime "created_at",                                             :null => false
+    t.datetime "updated_at",                                             :null => false
   end
 
 end
