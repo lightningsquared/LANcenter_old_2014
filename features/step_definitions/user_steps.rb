@@ -6,19 +6,19 @@ When(/^I submit a new user account request$/) do
   pending # express the regexp above with the code you wish you had
 end
 
-When(/^I confirm my email address$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
 Then(/^a new user account should be created$/) do
   pending # express the regexp above with the code you wish you had
 end
 
-Then(/^the user account should be of type "(.*?)"$/) do |arg1|
+Given(/^one user account exists of type "(.*?)"$/) do |type|
   pending # express the regexp above with the code you wish you had
 end
 
-Given(/^one or more user accounts exist of type "(.*?)"$/) do |arg1|
+Given(/^one or more user accounts exist of type "(.*?)"$/) do |type|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^the user account should be of type "(.*?)"$/) do |type|
   pending # express the regexp above with the code you wish you had
 end
 
@@ -31,10 +31,6 @@ Then(/^I should be redirected to the user account creation page$/) do
 end
 
 Then(/^I should be notified that an event organizer user account must first be created$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Given(/^one user account exists of type "(.*?)"$/) do |arg1|
   pending # express the regexp above with the code you wish you had
 end
 
