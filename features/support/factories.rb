@@ -1,9 +1,9 @@
 require "factory_girl"
 
 FactoryGirl.define do
-  factory :user do |f|
-    f.email_address "ariel.kirkwood@gmail.com"
-    f.password "omgitsasecret"
-    f.privilege_level "event_organizer"
+  factory :user_event_organizer, class: User do
+    email_address "ariel.kirkwood@gmail.com"
+    password "omgitsasecret"
+    privilege_level "event_organizer"
   end
 end
