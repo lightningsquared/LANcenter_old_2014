@@ -11,7 +11,8 @@ Then(/^a new user account should be created$/) do
 end
 
 Given(/^an Event Organizer user account exists$/) do
-  FactoryGirl.create(:user_event_organizer)
+  FactoryGirl.create(:user)
+  User.count.should == 1
 end
 
 Given(/^one or more user accounts exist of type (.*?)$/) do |type|
