@@ -8,16 +8,20 @@ Feature: User Accounts
   Scenario: Create first User Account
     Given no user accounts exist
     When I submit a new user account request
-      And I confirm my email address
     Then a new user account should be created
       And the user account should have Event Organizer privileges
+      But the user account should not be confirmed
+    When I confirm my email address
+    Then the user account should be confirmed
 
   @wip
   Scenario: Create User Account
     Given an Event Organizer user account exists
     When I submit a new user account request
-      And I confirm my email address
     Then a new user account should be created
+      But the user account should not be confirmed
+    When I confirm my email address
+    Then the user account should be confirmed
 
   Scenario: Prevent access to other parts of LANcenter until at least one event organizer account has been created
     Given no user accounts exist
