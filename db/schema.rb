@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140131054701) do
+ActiveRecord::Schema.define(:version => 20140201004529) do
 
   create_table "users", :force => true do |t|
     t.string   "email_address",   :limit => 254,                         :null => false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20140131054701) do
     t.string   "privilege_level",                :default => "attendee", :null => false
     t.datetime "created_at",                                             :null => false
     t.datetime "updated_at",                                             :null => false
+    t.boolean  "email_confirmed",                :default => false
   end
 
 end
