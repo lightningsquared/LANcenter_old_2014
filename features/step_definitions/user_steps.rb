@@ -36,5 +36,5 @@ When(/^I confirm my email address$/) do
 end
 
 Given(/^an Event Organizer user account exists$/) do
-  @user = FactoryGirl.create(:user_event_organizer)
+  FactoryGirl.create(:user_event_organizer)
 end
