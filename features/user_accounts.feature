@@ -4,21 +4,20 @@ Feature: User Accounts
   As an attendee, volunteer, or event organizer
   I would like to have a user account within the system
 
-  @wip
   Scenario: Create first User Account
     Given no user accounts exist
     When I submit a new user account request
     Then a new user account should be created
-      And the user account should have Event Organizer privileges
+      And the user account role should be "Event Organizer"
       But the user account should not be confirmed
     When I confirm my email address
     Then the user account should be confirmed
 
-  @wip
   Scenario: Create User Account
     Given an Event Organizer user account exists
     When I submit a new user account request
     Then a new user account should be created
+      And the user account role should be "Attendee"
       But the user account should not be confirmed
     When I confirm my email address
     Then the user account should be confirmed
