@@ -2,30 +2,43 @@ Given(/^an organization does not exist$/) do
   Organization.count.should == 0
 end
 
-When(/^I submit an organization creation request$/) do
-  pending # express the regexp above with the code you wish you had
+When(/^I submit a new organization request$/) do
+  visit(new_organization_path)
+  fill_in('organization_name', with: "Drexel DragonLAN")
+  fill_in('organization_email', with: "staff@drexeldragonlan.org")
+  click_button('Create Organization')
 end
 
 Then(/^an organization should be created$/) do
-  pending # express the regexp above with the code you wish you had
+  @organization = Organization.first
+end
+
+Then(/^(\d+) organizations? should exist$/) do |number|
+  Organization.count.should == number.to_i
 end
 
 Given(/^an organization has been created$/) do
-  FactoryGirl.create(:organization)
+  @organization = FactoryGirl.create(:organization)
 end
 
-When(/^I submit some information about my organization$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I should be told that an organization already exists$/) do
-  pending # express the regexp above with the code you wish you had
+When(/^I access the new organization page$/) do
+  visit(new_organization_path)
 end
 
 When(/^I edit some information about my organization$/) do
-  pending # express the regexp above with the code you wish you had
+  visit(edit_organization_path)
+  fill_in('organization_name', with: "Temple Gaming")
+  click_button('Update Organization')
 end
 
 Then(/^I should see my changes on the organization page$/) do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content "Temple Gaming"
+end
+
+Then(/^I should be redirected to the organization page$/) do
+  page.current_path.should == organization_path
+end
+
+Then(/^I should be notified that an organization already exists$/) do
+  page.should have_content "An organization already exists."
 end
