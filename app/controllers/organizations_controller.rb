@@ -1,16 +1,20 @@
 class OrganizationsController < ApplicationController
   # GET /organization
   def show
-    @organization = Organization.find(1)
+    @organization = Organization.find_or_initialize_by_id(1)
 
     respond_to do |format|
-      format.html # show.html.erb
+      if @organization.new_record?
+        format.html { redirect_to new_organization_path }
+      else
+        format.html # show.html.erb
+      end
     end
   end
 
   # GET /organizations/new
   def new
-    @organization = Organization.find(1) || Organization.new
+    @organization = Organization.find_or_initialize_by_id(1)
 
     respond_to do |format|
       if @organization.new_record?
@@ -53,12 +57,13 @@ class OrganizationsController < ApplicationController
   end
 
   # DELETE /organizations/1
-  def destroy
-    @organization = Organization.find(1)
-    @organization.destroy
+  # Commented out for the time being, since we don't want to delete the organization.
+  # def destroy
+  #   @organization = Organization.find(1)
+  #   @organization.destroy
 
-    respond_to do |format|
-      # format.html { redirect_to organization_path }
-    end
-  end
+  #   respond_to do |format|
+  #     # format.html { redirect_to organization_path }
+  #   end
+  # end
 end
