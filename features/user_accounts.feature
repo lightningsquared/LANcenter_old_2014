@@ -7,15 +7,20 @@ Feature: User Accounts
   Scenario: Create first User Account
     Given no user accounts exist
     When I submit a new user account request
-      And I confirm my email address
     Then a new user account should be created
-      And the user account should be of type "Event Organizer"
+      And the user account role should be "Event Organizer"
+      But the user account should not be confirmed
+    When I confirm my email address
+    Then the user account should be confirmed
 
   Scenario: Create User Account
-    Given one or more user accounts exist of type "Event Organizer"
+    Given an Event Organizer user account exists
     When I submit a new user account request
-      And I confirm my email address
     Then a new user account should be created
+      And the user account role should be "Attendee"
+      But the user account should not be confirmed
+    When I confirm my email address
+    Then the user account should be confirmed
 
   Scenario: Prevent access to other parts of LANcenter until at least one event organizer account has been created
     Given no user accounts exist
@@ -24,7 +29,7 @@ Feature: User Accounts
       And I should be notified that an event organizer user account must first be created
 
   Scenario: Prevent deletion of all Event Organizer accounts
-    Given one user account exists of type "Event Organizer"
+    Given an Event Organizer user account exists
     When I try to delete the user account
     Then the user account should not be deleted
       And I should be notified that at least one event organizer user account must exist
