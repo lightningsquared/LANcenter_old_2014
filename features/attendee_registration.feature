@@ -43,8 +43,9 @@ Feature: Attendee Registration
     Then the system should save a new attendee for the event
       And the new attendee should be sent an email confirming they have been registered as an attendee
 
+  @wip
   Scenario: Volunteer submits registration on attendee's behalf at any time
-    Given I am signed in as a volunteer or event organizer
+    Given I am signed in as a volunteer
     When I submit an attendee registration request for the event
     Then the system should save a new attendee for the event
       And the new attendee should be sent an email confirming they have been registered as an attendee

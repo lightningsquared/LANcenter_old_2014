@@ -1,12 +1,12 @@
 Feature: Attendee Check-in
 
   In order to stay on top of who is at my event
-  As an event organizer or volunteer
+  As a volunteer
   I want to check in my attendees when they arrive
 
   Background:
     Given an event has been created
-      And I am signed in as a volunteer or event organizer
+      And I am signed in as a volunteer
 
   Scenario: Check in an attendee who has pre-registered
     Given I need to check in a new attendee
