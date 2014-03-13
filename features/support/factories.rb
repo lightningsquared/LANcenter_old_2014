@@ -6,4 +6,9 @@ FactoryGirl.define do
     f.password "correct horse battery staple"
     f.role "Event Organizer"
   end
+
+  factory :organization do |f|
+    f.name "Drexel DragonLAN"
+    f.email "staff@drexeldragonlan.org"
+  end
 end

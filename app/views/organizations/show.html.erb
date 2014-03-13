@@ -1,0 +1,17 @@
+<h1><%= @organization.name %></h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= @organization.email %></td>
+    <td><%= link_to 'Edit', edit_organization_path %></td>
+  </tr>
+</table>
+
+<br />
+
+<%= link_to 'New Organization', new_organization_path %>

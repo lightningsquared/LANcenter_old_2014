@@ -4,9 +4,9 @@ end
 
 When(/^I submit a new user account request$/) do
   visit(new_user_registration_path)
-  fill_in('user_email', :with => "new.user@example.com")
-  fill_in('user_password', :with => "correct horse battery staple")
-  fill_in('user_password_confirmation', :with => "correct horse battery staple")
+  fill_in('user_email', with: "new.user@example.com")
+  fill_in('user_password', with: "correct horse battery staple")
+  fill_in('user_password_confirmation', with: "correct horse battery staple")
   click_button('Sign up')
 end
 
@@ -35,6 +35,15 @@ When(/^I confirm my email address$/) do
   @user = User.find_by_email(current_email_address)
 end
 
-Given(/^an Event Organizer user account exists$/) do
-  FactoryGirl.create(:user_event_organizer)
+Given(/^an (.*) user account exists$/) do |role|
+  FactoryGirl.create(:"user_#{role.downcase.tr(' ', '_')}")
+end
+
+Given(/^I am signed in as an? (.*)$/) do |role|
+  @user = FactoryGirl.create(:"user_#{role.downcase.tr(' ', '_')}")
+  @user.confirm! # ensure that the user is confirmed and allowed to sign in
+  visit(new_user_session_path)
+  fill_in('user_email', with: @user.email)
+  fill_in('user_password', with: @user.password)
+  click_button('Sign in')
 end
